@@ -178,7 +178,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function displaySuppliers(suppliers) {
-        suppliersList.innerHTML = '';
+        suppliersList.innerHTML = <div class="no-results">
+    <i class="fas fa-info-circle"></i>
+    No suppliers found for "${searchTerm}"
+  </div>;
         
         if (suppliers.length === 0) {
             suppliersList.innerHTML = `
