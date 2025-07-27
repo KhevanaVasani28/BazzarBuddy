@@ -1,3 +1,9 @@
+if (typeof db === 'undefined') {
+  console.error('Firestore not initialized!');
+  document.getElementById('suppliers-list').innerHTML = `
+    <div class="error">Firebase connection failed</div>
+  `;
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize variables
     let currentLocation = null;
