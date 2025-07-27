@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('#stock-items input[type="checkbox"]').forEach(checkbox => {
             const itemName = checkbox.nextElementSibling.textContent;
             stock[itemName] = checkbox.checked;
+            console.log(`Item: ${itemName}`, `Available: ${checkbox.checked}`);
         });
         
         db.collection('suppliers').doc(userId).update({
