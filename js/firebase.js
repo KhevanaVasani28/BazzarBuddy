@@ -9,8 +9,30 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+try{
 firebase.initializeApp(firebaseConfig);
 
 // Initialize services
 const auth = firebase.auth();
 const db = firebase.firestore();
+// Firestore settings
+  db.settings({
+    timestampsInSnapshots: true,
+    merge: true
+  });
+  
+  // Enable offline persistence
+  db.enablePersistence()
+    .catch((err) => {
+      if (err.code === 'failed-precondition') {
+        console.warn("Offline persistence can only be enabled in one tab at a time.");
+      } else if (err.code === 'unimplemented') {
+        console.warn("The current browser does not support offline persistence.");
+      }
+    });
+  // Export services
+  export { auth, db };
+  
+} catch (err) {
+  console.error("Firebase initialization failed", err);
+}
