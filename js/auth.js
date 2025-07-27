@@ -129,12 +129,21 @@ document.addEventListener('DOMContentLoaded', function() {
             // 2. Save additional data to Firestore
             await db.collection('suppliers').doc(user.uid).set({
                 id: user.uid,
-                shopName,
+                shopName:shopName,
                 contactNumber: phone,
-                email,
+                email: email,
                 location: userLocation,
                 status: 'CLOSED',
-                stock: {},
+                stock: {'Onions': false,
+                          'Tomatoes': false,
+                          'Oil': false,
+                          'Potatoes': false,
+                          'Wheat Flour': false,
+                          'Rice': false,
+                          'Spices': false,
+                          'Chicken':false,
+                          'Vegetables':false
+                },
                 rating: { up: 0, down: 0 },
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             });
@@ -166,4 +175,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add this to your existing auth code
