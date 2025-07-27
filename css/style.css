@@ -199,6 +199,8 @@ header p {
   margin: 15px 0;
   border-radius: 8px;
   background: #f8f9fa;
+  color: #666;     
+  font-size: 1rem; 
 }
 
 .loading-template i {
@@ -214,6 +216,10 @@ header p {
   color: #f44336;
   text-align: center;
   padding: 15px;
+  background: #f8f9fa;  
+  border-radius: 8px;   
+  font-size: 1rem;      
+  margin: 15px 0;  
 }
 
 .status-open {
@@ -871,6 +877,7 @@ input:checked + .slider:before {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
 /* ===== Responsive Adjustments ===== */
 @media (max-width: 768px) {
   .stock-items {
