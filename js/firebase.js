@@ -10,11 +10,16 @@ const firebaseConfig = {
 
 // Initialize Firebase
 try{
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  } else {
+    firebase.app(); // Use existing app
+  }
 
 // Initialize services
 const auth = firebase.auth();
 const db = firebase.firestore();
+  
 // Firestore settings
   db.settings({
     timestampsInSnapshots: true,
@@ -24,15 +29,20 @@ const db = firebase.firestore();
   // Enable offline persistence
   db.enablePersistence()
     .catch((err) => {
-      if (err.code === 'failed-precondition') {
-        console.warn("Offline persistence can only be enabled in one tab at a time.");
-      } else if (err.code === 'unimplemented') {
-        console.warn("The current browser does not support offline persistence.");
-      }
+        console.warn("Offline persistence unavailable:",err.code);
     });
-  // Export services
-  export { auth, db };
-  
-} catch (err) {
-  console.error("Firebase initialization failed", err);
+ // Make available globally (for your HTML-based architecture)
+  window.auth = auth;
+  window.db = db;
+
+  console.log('Firebase initialized successfully');
+
+} catch (error) {
+  console.error('Firebase initialization failed', error);
+  document.body.innerHTML = `
+    <div class="firebase-error">
+      <h2>System Maintenance</h2>
+      <p>We're experiencing technical difficulties. Please try again later.</p>
+    </div>
+  `;
 }
