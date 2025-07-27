@@ -1,3 +1,7 @@
+if (typeof db === 'undefined' || typeof auth === 'undefined') {
+  console.error('Firebase not initialized!');
+  // Optionally redirect to error page
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Check if user is logged in
     auth.onAuthStateChanged(user => {
