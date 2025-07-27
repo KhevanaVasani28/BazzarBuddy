@@ -772,3 +772,48 @@ input:checked + .slider:before {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+// for changes in vendor 
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 1rem;
+}
+
+.loading i {
+    margin-right: 8px;
+    animation: spin 1s linear infinite;
+}
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.no-results i {
+    margin-right: 8px;
+    color: #2196F3;
+}
+
+.error {
+    text-align: center;
+    padding: 20px;
+    color: #f44336;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.error i {
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
