@@ -30,11 +30,17 @@
             </div>
         </div>
         
-        <div id="suppliers-list" class="suppliers-list">
-            <!-- Suppliers will be loaded here dynamically -->
-            <div class="loading">Loading suppliers near you...</div>
+        <div id="suppliers-list">
+          <div class="loading" style="display: none;">
+          <i class="fas fa-spinner fa-spin"></i> Loading suppliers near you...
         </div>
-        
+    <div class="loading-template" style="display: none;">
+     <i class="fas fa-spinner fa-spin"></i> Searching suppliers...
+  </div>
+  <div class="no-results-template" style="display: none;">
+    <i class="fas fa-info-circle"></i> No suppliers found for "<span class="search-term"></span>"
+  </div>
+</div>
         <div class="location-status">
             <p id="location-text">Using your current location</p>
             <button id="change-location">Change Location</button>
