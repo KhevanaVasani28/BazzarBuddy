@@ -1,3 +1,7 @@
+if (typeof firebase === 'undefined') {
+  console.error('Firebase not loaded!');
+  alert('Firebase not loaded. Please refresh the page.');
+}
 document.addEventListener('DOMContentLoaded', function() {
     // DOM elements
     const loginForm = document.getElementById('login-form');
