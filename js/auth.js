@@ -136,13 +136,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 status: 'CLOSED',
                 stock: {'Onions': false,
                           'Tomatoes': false,
-                          'Oil': false,
                           'Potatoes': false,
+                          'Oil': false,
                           'Wheat Flour': false,
                           'Rice': false,
-                          'Spices': false,
+                        'Milk': false, 'Cheese' :false, 'Butter':false, 'Eggs':false,
                           'Chicken':false,
-                          'Vegetables':false
+                        'Spices': false, 'Lentils':false,
+                          'Vegetables':false, 'Fruits': false
                 },
                 rating: { up: 0, down: 0 },
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
